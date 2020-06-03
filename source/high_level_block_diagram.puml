@@ -1,0 +1,22 @@
+@startuml AudioServer
+
+Package "AudioServer" {
+    [AudioFlinger] <<service>>
+    [AudioPolicyService] <<service>>
+    [AAudioService] <<service>>
+    [SoundTriggerHwService] <<service>>
+}
+
+skinparam component {
+    backgroundColor<<service>> DarkKhaki
+    backgroundColor<<shared lib>> Green
+}
+
+skinparam node {
+borderColor Green
+backgroundColor Yellow
+backgroundColor<<shared node>> Magenta
+}
+skinparam databaseBackgroundColor Aqua
+
+@endumll

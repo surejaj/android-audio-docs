@@ -11,10 +11,12 @@ Introduction
 
 From an Android application developers perspective, Audio API's are very well documented. But an Android platform implementor would be interested in understanding the various modules within the Android stack involved in audio handling.Android audio stack is really complex involving many different libraries. Android documentation of audio available `here <https://source.android.com/devices/audio>`_  is a good starting point. But it lacks a lot of details. This page is an attempt to understand the inner workings of Android audio stack and tries to document various components and interfaces. It also attempts to help a platform implementor on developing a custom audio HAL.
 
+.. uml:: high_level_block_diagram.puml
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
 
 
 

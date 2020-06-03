@@ -8,6 +8,13 @@ SPHINXBUILD   ?= python -m sphinx.cmd.build
 SOURCEDIR     = source
 BUILDDIR      = build
 
+PLANTUMLJAR ?= $(BUILDDIR)/plantuml.jar
+
+$(PLANTUMLJAR):
+	wget -O $@ http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
+
+html: $(PLANTUMLJAR)
+
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
