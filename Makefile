@@ -10,7 +10,10 @@ BUILDDIR      = build
 
 PLANTUMLJAR ?= $(BUILDDIR)/plantuml.jar
 
-$(PLANTUMLJAR):
+$(BUILDDIR):
+	mkdir -p $@
+
+$(PLANTUMLJAR): | $(BUILDDIR)
 	wget -O $@ http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
 
 html: $(PLANTUMLJAR)
@@ -23,5 +26,5 @@ help:
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile
+%: Makefile $(PLANTUMLJAR)
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
