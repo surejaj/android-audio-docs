@@ -8,15 +8,11 @@ Package "AudioServer" {
 }
 
 skinparam component {
-    backgroundColor<<service>> DarkKhaki
-    backgroundColor<<shared lib>> Green
+    backgroundColor<<service>> #F7D18C
 }
 
-skinparam node {
-borderColor Green
-backgroundColor Yellow
-backgroundColor<<shared node>> Magenta
+skinparam Package {
+    backgroundColor #98C482
+    BoxPadding 10px
 }
-skinparam databaseBackgroundColor Aqua
-
 @endumll

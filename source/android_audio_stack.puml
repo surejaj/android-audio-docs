@@ -1,0 +1,65 @@
+@startuml Android Audio Stack
+    allow_mixing
+    hide stereotype
+
+    package "User space" <<userspace>> {
+
+        package Application <<userspace_package>> {
+            component JNI
+        }
+        
+        package AudioClient <<userspace_package>> {
+            component AAudioClient
+            component libaudioclient
+        }
+
+        package AudioServer <<userspace_package>> {
+            component AAudioService
+            component AudioFlinger
+            component AudioPolicyManager
+        }
+
+        package HAL <<userspace_package>> {
+            component AudioHAL
+            component TinyALSA
+
+            AudioHAL -> TinyALSA
+        }
+
+        JNI ---> libaudioclient
+
+        libaudioclient  --->AudioFlinger
+        AAudioClient    --->AAudioService
+
+
+        AudioFlinger  ---> AudioHAL
+        AAudioService ---> AudioHAL
+    }
+
+    package "Kernel Space" <<kernelspace>> {
+        component "ALSA Driver"
+    }
+
+TinyALSA ---> "ALSA Driver"
+
+skinparam linetype ortho
+
+skinparam Package {
+    FontName Courier
+    BackgroundColor<<userspace_package>> #e2e2e2-#afafaf
+}
+
+skinparam component {
+  FontSize 13
+  BackgroundColor<<Apache>> Red
+  BorderColor<<Apache>> #FF6655
+  FontName Courier
+  BorderColor black
+  BackgroundColor gold
+  ArrowFontName Impact
+  ArrowColor #FF6655
+  ArrowFontColor #777777
+  ArrowThickness 2
+}
+
+@enduml
