@@ -24,6 +24,8 @@ author = 'Surej Joseph'
 
 # -- General configuration ---------------------------------------------------
 
+master_doc = 'index'
+
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
@@ -53,5 +55,5 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 
 #-- PlantUML ------------------------------------------------------------------
-plantumljar = os.path.join(os.path.abspath("."), "../`build/plantuml.jar")
-plantuml = 'java -jar ../build/plantuml.jar'
+plantumljar = os.path.join(os.path.abspath("."), "../build/plantuml.jar")
+plantuml = 'java -jar ' + str(plantumljar)
