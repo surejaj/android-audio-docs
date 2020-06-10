@@ -57,3 +57,4 @@ html_static_path = ['_static']
 #-- PlantUML ------------------------------------------------------------------
 plantumljar = os.path.join(os.path.abspath("."), "../build/plantuml.jar")
 plantuml = 'java -jar ' + str(plantumljar)
+plantuml_output_format = 'svg'

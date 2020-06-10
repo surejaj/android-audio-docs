@@ -3,16 +3,9 @@
 Package "AudioServer" {
     [AudioFlinger] <<service>>
     [AudioPolicyService] <<service>>
-    [AAudioService] <<service>>
+    [AAudioiService] <<service>>
     [SoundTriggerHwService] <<service>>
 }
 
-skinparam component {
-    backgroundColor<<service>> #F7D18C
-}
-
-skinparam Package {
-    backgroundColor #98C482
-    BoxPadding 10px
-}
+!include ../template.iuml
 @endumll

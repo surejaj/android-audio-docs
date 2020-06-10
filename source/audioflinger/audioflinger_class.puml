@@ -1,0 +1,100 @@
+@startuml
+
+package AudioFlinger {
+    class AudioFlinger {
+        createTrack()
+        createRecord()
+        uint32_t sampleRate()
+        size_t frameCount()
+        uint32_t latency()
+
+        status_t setMasterVolume()
+        status_t setMasterMute()
+
+        status_t setMode()
+
+        status_t setMicMute()
+        bool getMicMute()
+
+        status_t setParameters()
+        String8 getParameters()
+
+        status_t openOutput()
+        status_t closeOutput()
+        status_t suspendOutput()
+        status_t restoreOutput()
+
+        status_t openInput()
+        status_t closeInput()
+
+        status_t queryNumberEffect()
+        status_t getEffectDescriptor()
+        IEffect  createEffect()
+        status_t moveEffect()
+
+        audio_module_handle_t loadHwModule()
+
+        status_t listAudioPorts()
+        status_t getAudioPort()
+
+        status_t createAudioPatch()
+        status_t releaseAudioPatch()
+        status_t listAudioPatches()
+    }
+
+    class TrackHandle{
+        status_t start()
+        void stop()
+        void flush()
+        void pause()
+
+        status_t attachAuxEffect()
+        status_t selectPresentation()
+        Status applyVolumeShaper()
+        status_t getTimeStamp()
+        )
+    }
+
+    class RecordHandle {
+        Status start()
+        Status stop()
+        Status getActiveMicrophones()
+        Status setPreferredMicrophoneDirection()
+        Status setPreferredMicrophoneFieldDimension()
+    }
+
+    class MmapThreadHandle {
+        status_t createMmapBuffer()
+        status_t getMmapPosition()
+
+        status_t start()
+        status_t stop()
+        status_t standby()
+    }
+}
+
+package libaudiohal {
+    class DevicesFactoryHalInterface {
+        status_t openDevice()
+        
+        {static} DevicesFactoryHalInterface create()
+    }
+
+    class EffectsFactoryHalInterface {
+        status_t queryNumberEffects()
+        status_t getDescriptor()
+        status_t createEffect()
+        status_t dumpEffects()
+
+        {static} EffectsFactoryHalInterface create()
+    }
+}
+AudioFlinger +-- TrackHandle
+AudioFlinger +-- RecordHandle
+AudioFlinger +-- MmapThreadHandle
+
+AudioFlinger o-- DevicesFactoryHalInterface
+AudioFlinger o-- EffectsFactoryHalInterface
+
+!include ../template.iuml
+@enduml

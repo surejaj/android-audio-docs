@@ -6,7 +6,7 @@ Introduction
 
 Welcome to Android audio documentation site. This site was created to provide design and implementation details of Android Audio stack.
 
-From an Android application developers perspective, Android Audio API's are very well documented. Android platform implementor would be interested in understanding the various modules within the Android stack involved in audio handling.Android audio stack is really complex involving many different libraries. Android documentation of audio available `here <https://source.android.com/devices/audio>`_  is a good starting point. But it lacks a lot of details. 
+From an Android application developers perspective, Android Audio API's are very well documented. Android platform implementor would be interested in understanding the various modules within the Android stack involved in audio handling.Android audio stack is really complex involving many different libraries. Android documentation of audio available at `source.android.com <https://source.android.com/devices/audio>`_  is a good starting point. But it lacks a lot of details. 
 
 This page attempts to demystify the inner workings of Android audio stack and tries to document various components and interfaces. Speficially, we look at following components of the android audio stack:
 
@@ -14,6 +14,7 @@ This page attempts to demystify the inner workings of Android audio stack and tr
 *  Android Audioflinger.
 *  Android Audio policy manager.
 *  AAudio client and service.
+*  Sound Trigger Client and HAL.
 *  Audio HAL.
 
 It also attempts to help a detailed guide on developing a custom audio HAL.

@@ -1,0 +1,30 @@
+
+skinparam linetype ortho
+
+skinparam Package {
+    FontName Courier
+    BackgroundColor<<userspace_package>> #e2e2e2-#afafaf
+}
+
+skinparam class {
+    FontName Courier
+    FontSize 13
+    BorderColor black
+    BackgroundColor #FAF0D3-#FFFEFD
+    ArrowFontName Impact
+    ArrowColor #FF6655
+    ArrowFontColor #777777
+    ArrowThickness 2
+    classBackgroundColor Wheat|CornflowerBlue
+}
+
+skinparam component {
+  FontSize 13
+  FontName Courier
+  BorderColor black
+  BackgroundColor #C1D1E2-#FCFDFD
+  ArrowFontName Impact
+  ArrowColor #FF6655
+  ArrowFontColor #777777
+  ArrowThickness 2
+}
