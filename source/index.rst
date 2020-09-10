@@ -25,6 +25,8 @@ It also attempts to help a detailed guide on developing a custom audio HAL.
 
    audioserver/audioserver
    audioflinger/audioflinger
+   effects/android_effects
+   aaudio/aaudio
 
 Android Audio stack
 -------------------

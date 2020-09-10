@@ -1,5 +1,5 @@
 AudioServer
-===================
+============
 
 AudioServer is the primary process that hosts several audio related services. It runs as a daemon throughout the lifetime of the device. Below is the high level architecture of android audio server.
 

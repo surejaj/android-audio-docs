@@ -1,0 +1,48 @@
+@startuml
+
+participant EffectHAL
+participant EffectFactory
+participant PreProcessingEffectInterface
+participant SessionLayer
+participant EffectLayer
+participant Effect
+
+EffectHAL->EffectFactory:  EffectCreate()
+note right of EffectHAL
+http://tiny.cc/v2wtsz
+end note
+
+EffectFactory->EffectFactory: doEffectCreate()
+note right of EffectFactory
+http://tiny.cc/l5wtsz
+end note
+
+EffectFactory->EffectFactory: findEffect()
+note right of EffectFactory
+http://tiny.cc/q5wtsz
+end note
+
+box PreProcessingLibrary
+EffectFactory->PreProcessingEffectInterface: create_effect()
+note left of PreProcessingEffectInterface
+http://tiny.cc/w5wtsz
+end note
+
+PreProcessingEffectInterface->SessionLayer: PreProc_GetSession()
+SessionLayer->PreProcessingEffectInterface: Return Session
+
+PreProcessingEffectInterface->SessionLayer: Session_CreateEffect()
+SessionLayer->EffectLayer: Effect_Create()
+note left of EffectLayer
+Sets effect itfe pointer
+end note
+
+EffectLayer->EffectLayer: Effect_SetState(PREPROC_EFFECT_STATE_CREATED)
+EffectLayer->Effect: create()
+Effect->EffectLayer: Return status
+EffectLayer->SessionLayer: Return status
+PreProcessingEffectInterface->EffectFactory: Return effect interface
+end box
+
+!include ../template.iuml
+@enduml
